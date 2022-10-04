@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "floatingpanel#swift-package-manager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/scenee/FloatingPanel#swift-package-manager",
+      "state" : {
+        "revision" : "b00a05b9ed7717da0e5ce1b760e27ffcbaddd333",
+        "version" : "2.5.4"
+      }
+    }
+  ],
+  "version" : 2
+}
