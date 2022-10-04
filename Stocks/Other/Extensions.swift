@@ -8,6 +8,15 @@
 import Foundation
 import UIKit
 
+// MARK: - Add Subview
+extension UIView {
+    func addSubViews(_ views: UIView...) {
+        views.forEach {
+            addSubview($0)
+        }
+    }
+}
+
 // MARK: - Framing
 
 extension UIView {
