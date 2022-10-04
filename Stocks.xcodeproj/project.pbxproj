@@ -26,6 +26,8 @@
 		72F8626028EC6037000353DA /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8625F28EC6037000353DA /* NewsViewController.swift */; };
 		72F8626228EC6431000353DA /* NewsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8626128EC6431000353DA /* NewsHeaderView.swift */; };
 		72F8626428ECC534000353DA /* NewsStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8626328ECC534000353DA /* NewsStory.swift */; };
+		72F8626628ECD075000353DA /* NewsStoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8626528ECD075000353DA /* NewsStoryTableViewCell.swift */; };
+		72F8626928ECF207000353DA /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 72F8626828ECF207000353DA /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,7 @@
 		72F8625F28EC6037000353DA /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		72F8626128EC6431000353DA /* NewsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeaderView.swift; sourceTree = "<group>"; };
 		72F8626328ECC534000353DA /* NewsStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStory.swift; sourceTree = "<group>"; };
+		72F8626528ECD075000353DA /* NewsStoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72F8626928ECF207000353DA /* SDWebImage in Frameworks */,
 				72F8625E28EC5CFF000353DA /* FloatingPanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +111,7 @@
 				7269465528EB51FB00217A23 /* LaunchScreen.storyboard */,
 				7269467128EB86BA00217A23 /* SearchResultTableViewCell.swift */,
 				72F8626128EC6431000353DA /* NewsHeaderView.swift */,
+				72F8626528ECD075000353DA /* NewsStoryTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 			name = Stocks;
 			packageProductDependencies = (
 				72F8625D28EC5CFF000353DA /* FloatingPanel */,
+				72F8626828ECF207000353DA /* SDWebImage */,
 			);
 			productName = Stocks;
 			productReference = 7269464728EB51FB00217A23 /* Stocks.app */;
@@ -194,6 +200,7 @@
 			mainGroup = 7269463E28EB51FB00217A23;
 			packageReferences = (
 				72F8625C28EC5CFF000353DA /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+				72F8626728ECF207000353DA /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 7269464828EB51FB00217A23 /* Products */;
 			projectDirPath = "";
@@ -234,6 +241,7 @@
 				7269464B28EB51FB00217A23 /* AppDelegate.swift in Sources */,
 				72F8626228EC6431000353DA /* NewsHeaderView.swift in Sources */,
 				7269464D28EB51FB00217A23 /* SceneDelegate.swift in Sources */,
+				72F8626628ECD075000353DA /* NewsStoryTableViewCell.swift in Sources */,
 				72F8626028EC6037000353DA /* NewsViewController.swift in Sources */,
 				724AC97C28EBF99400AB8A55 /* PanelViewController.swift in Sources */,
 				7269466628EB52EB00217A23 /* SearchResultsViewController.swift in Sources */,
@@ -454,6 +462,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		72F8626728ECF207000353DA /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -461,6 +477,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 72F8625C28EC5CFF000353DA /* XCRemoteSwiftPackageReference "FloatingPanel" */;
 			productName = FloatingPanel;
+		};
+		72F8626828ECF207000353DA /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72F8626728ECF207000353DA /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
