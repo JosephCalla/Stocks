@@ -1,9 +1,8 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "platform" : "ios",
-      "size" : "1024x1024"
+      "filename" : "stocks-2018-04-25.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {
