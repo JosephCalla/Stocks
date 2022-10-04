@@ -53,7 +53,6 @@ extension WatchListViewController: UISearchResultsUpdating {
         // Kick off new timer        
         // Optimize to reduce number of searches for when user stopos typing
         searchTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { _ in
-            
             // Call API to search
             APICaller.shared.search(query: query) { result in
                 switch result {
@@ -69,18 +68,19 @@ extension WatchListViewController: UISearchResultsUpdating {
                 }
             }
         })
-        
-                
     }
-    
-    
-    
 }
 
 
 extension WatchListViewController: SearchResultsViewControllerDelegate {
     func searchResultViewControllerDidSelect(searchResult: SearchResult) {
-        // Present stock details for given selection
-        print("Did select: \(searchResult.displaySymbol)")
+        navigationItem.searchController?.searchBar.resignFirstResponder()
+        
+        let vc = StocksDetailsViewController()
+        let navVC = UINavigationController(rootViewController: vc)
+        
+        vc.title = searchResult.description
+        present(navVC, animated: true)
+        
     }
 }

@@ -54,11 +54,11 @@ extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSourc
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath)
-        
         let model = results[indexPath.row]
         
         cell.textLabel?.text = model.displaySymbol
         cell.detailTextLabel?.text = model.description
+        
         return cell
     }
     
