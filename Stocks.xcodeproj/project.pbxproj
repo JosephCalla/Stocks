@@ -25,6 +25,7 @@
 		72F8625E28EC5CFF000353DA /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 72F8625D28EC5CFF000353DA /* FloatingPanel */; };
 		72F8626028EC6037000353DA /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8625F28EC6037000353DA /* NewsViewController.swift */; };
 		72F8626228EC6431000353DA /* NewsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8626128EC6431000353DA /* NewsHeaderView.swift */; };
+		72F8626428ECC534000353DA /* NewsStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8626328ECC534000353DA /* NewsStory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		72E7498728EBB58200042681 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		72F8625F28EC6037000353DA /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		72F8626128EC6431000353DA /* NewsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeaderView.swift; sourceTree = "<group>"; };
+		72F8626328ECC534000353DA /* NewsStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				72E7498728EBB58200042681 /* SearchResponse.swift */,
+				72F8626328ECC534000353DA /* NewsStory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				7269466C28EB70A200217A23 /* PersistenceManager.swift in Sources */,
 				7269467028EB84DB00217A23 /* Extensions.swift in Sources */,
 				7269466A28EB708D00217A23 /* APICaller.swift in Sources */,
+				72F8626428ECC534000353DA /* NewsStory.swift in Sources */,
 				72E7498828EBB58200042681 /* SearchResponse.swift in Sources */,
 				7269464B28EB51FB00217A23 /* AppDelegate.swift in Sources */,
 				72F8626228EC6431000353DA /* NewsHeaderView.swift in Sources */,

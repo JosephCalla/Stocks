@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        debug()
         return true
     }
 
@@ -30,7 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func debug() {
-        
+        APICaller.shared.news(for: .company(symbol: "MSFT")) { result in
+            switch result {
+            case .success(let news):
+                print(news.count)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
 

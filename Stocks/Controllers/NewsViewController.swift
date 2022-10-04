@@ -9,6 +9,11 @@ import UIKit
 
 class NewsViewController: UIViewController {
 
+    // MARK: Properties
+    
+    private var stories = [String]()
+    
+    private let type: TypeNews
     
     var tableView: UITableView = {
         let table = UITableView()
@@ -18,9 +23,7 @@ class NewsViewController: UIViewController {
         return table
     }()
     
-    private let type: Type
-    
-    enum `Type` {
+    enum TypeNews {
         case topStories
         case company(symbol: String)
         
@@ -35,7 +38,7 @@ class NewsViewController: UIViewController {
     }
     
     // MARK: - Initializer
-    init(type: Type) {
+    init(type: TypeNews) {
         self.type = type
         super.init(nibName: nil, bundle: nil)
     }
