@@ -11,16 +11,7 @@ class NewsViewController: UIViewController {
 
     // MARK: Properties
     
-    private var stories: [NewsStory] = [
-        NewsStory(category: "Tech",
-                  datetime: 123,
-                  headline: "Some headline should go here!",
-                  image: "",
-                  related: "RELATED",
-                  source: "CNBC",
-                  summary: "",
-                  url: "")
-    ]
+    private var stories = [NewsStory]()
     
     private let type: TypeNews
     
@@ -76,7 +67,17 @@ class NewsViewController: UIViewController {
     }
     
     private func fetchNews() {
-        
+        APICaller.shared.news(for: type) { result in
+            switch result {
+            case .success(let stories):
+                DispatchQueue.main.async {
+                    self.stories = stories
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print("❌ \(error)")
+            }
+        }
     }
     
     private func open(url: URL) {
@@ -89,6 +90,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return stories.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsStoryTableViewCell.identifier, for: indexPath) as? NewsStoryTableViewCell else {
             fatalError()
