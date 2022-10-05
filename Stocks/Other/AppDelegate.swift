@@ -31,13 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func debug() {
-        APICaller.shared.news(for: .company(symbol: "MSFT")) { result in
-            switch result {
-            case .success(let news):
-                print(news.count)
-            case .failure(let error):
-                print(error)
-            }
+        APICaller.shared.marketData(for: "IBM", numberOfDays: 7) { response in
+//            print("✅ \(response)")
         }
     }
 

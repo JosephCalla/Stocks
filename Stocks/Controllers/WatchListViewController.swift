@@ -14,10 +14,10 @@ class WatchListViewController: UIViewController {
     private var panel: FloatingPanelController?
     
     /// Model
-    private var watchlistMap: [String: [String]] = [:]
+    private var watchlistMap: [String: [CandleStick]] = [:]
     
     // ViewMdels
-    private var viewModels: [String] = []
+    private var viewModels: [WatchlListTableViewCell.ViewModel] = []
     
     private let tableView: UITableView = {
         let table = UITableView()
@@ -31,19 +31,79 @@ class WatchListViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupSearchController()
         setupTableView()
-        setupWatchlistData()
+        fetchWatchlistData()
         setupFloatingPanel()
         setupTitleView()
     }
     
     // MARK: - Private
     
-    private func setupWatchlistData() {
-        let symbols = PersistenceManager.shared.watchlist.count
+    private func fetchWatchlistData() {
+        let symbols = PersistenceManager.shared.watchlist
+        
+        let group = DispatchGroup()
+        
         for symbol in symbols {
-            // Fetch market data per symbol
-            watchlistMap[symbol] = ["Some string"]
+            group.enter()
+            
+            APICaller.shared.marketData(for: symbol) { [weak self] result in
+                defer {
+                    group.leave()
+                }
+                
+                switch result {
+                case .success(let data):
+                    let candleSticks = data.candleSticks
+                    self?.watchlistMap[symbol] = candleSticks
+                case .failure(let error):
+                    print(error)
+                }
+            }
         }
+        
+        group.notify(queue: .main) { [weak self] in
+            self?.createViewModels()
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func createViewModels() {
+        var viewModels = [WatchlListTableViewCell.ViewModel]()
+        
+        for (symbol, candleSticks) in watchlistMap {
+            let changePercentage = getChangePercentage(symbol: symbol,
+                                                       data: candleSticks)
+            
+            viewModels.append(.init(symbol: symbol,
+                                    companyName: UserDefaults.standard.string(forKey: symbol) ?? "Company",
+                                    price: getLatestClosingPrice(from: candleSticks),
+                                    changeColor: changePercentage < 0 ? .systemRed: .systemGreen,
+                                    changePercentage: .percentage(from: changePercentage)))
+        }
+        self.viewModels = viewModels
+    }
+    
+    private func getChangePercentage(symbol: String, data: [CandleStick]) -> Double {
+        let latestDate = data[0].date
+        
+        guard let latestClose = data.first?.close,
+              let priorClose = data.first(where: {
+                  !Calendar.current.isDate($0.date, inSameDayAs: latestDate)
+              })?.close else {
+            return 0
+        }
+        
+        // 267 / 260
+        let diff = (1 - (priorClose/latestClose))
+        print("\(symbol): \(diff)%")
+        return diff
+    }
+    
+    private func getLatestClosingPrice(from data: [CandleStick]) -> String {
+        guard let closingPrice = data.first?.close else {
+            return ""
+        }
+        return .formatted(number: closingPrice)
     }
     
     private func setupTableView() {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7233661628EDDE2C00D9716F /* MarketDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7233661528EDDE2C00D9716F /* MarketDataResponse.swift */; };
+		7233661828EDF39800D9716F /* WatchlListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7233661728EDF39800D9716F /* WatchlListTableViewCell.swift */; };
+		7233661A28EE22AB00D9716F /* StockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7233661928EE22AB00D9716F /* StockChartView.swift */; };
 		724AC97C28EBF99400AB8A55 /* PanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724AC97B28EBF99400AB8A55 /* PanelViewController.swift */; };
 		7269464B28EB51FB00217A23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269464A28EB51FB00217A23 /* AppDelegate.swift */; };
 		7269464D28EB51FB00217A23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269464C28EB51FB00217A23 /* SceneDelegate.swift */; };
@@ -31,6 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7233661528EDDE2C00D9716F /* MarketDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataResponse.swift; sourceTree = "<group>"; };
+		7233661728EDF39800D9716F /* WatchlListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlListTableViewCell.swift; sourceTree = "<group>"; };
+		7233661928EE22AB00D9716F /* StockChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockChartView.swift; sourceTree = "<group>"; };
 		724AC97B28EBF99400AB8A55 /* PanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelViewController.swift; sourceTree = "<group>"; };
 		7269464728EB51FB00217A23 /* Stocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7269464A28EB51FB00217A23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 			children = (
 				72E7498728EBB58200042681 /* SearchResponse.swift */,
 				72F8626328ECC534000353DA /* NewsStory.swift */,
+				7233661528EDDE2C00D9716F /* MarketDataResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -112,6 +119,8 @@
 				7269467128EB86BA00217A23 /* SearchResultTableViewCell.swift */,
 				72F8626128EC6431000353DA /* NewsHeaderView.swift */,
 				72F8626528ECD075000353DA /* NewsStoryTableViewCell.swift */,
+				7233661728EDF39800D9716F /* WatchlListTableViewCell.swift */,
+				7233661928EE22AB00D9716F /* StockChartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +239,7 @@
 			files = (
 				7269466E28EB70B300217A23 /* HapticsManager.swift in Sources */,
 				7269467228EB86BA00217A23 /* SearchResultTableViewCell.swift in Sources */,
+				7233661628EDDE2C00D9716F /* MarketDataResponse.swift in Sources */,
 				7269464F28EB51FB00217A23 /* WatchListViewController.swift in Sources */,
 				7269466428EB52DD00217A23 /* TopStoriesNewsViewController.swift in Sources */,
 				7269466828EB52F500217A23 /* StocksDetailsViewController.swift in Sources */,
@@ -237,7 +247,9 @@
 				7269467028EB84DB00217A23 /* Extensions.swift in Sources */,
 				7269466A28EB708D00217A23 /* APICaller.swift in Sources */,
 				72F8626428ECC534000353DA /* NewsStory.swift in Sources */,
+				7233661828EDF39800D9716F /* WatchlListTableViewCell.swift in Sources */,
 				72E7498828EBB58200042681 /* SearchResponse.swift in Sources */,
+				7233661A28EE22AB00D9716F /* StockChartView.swift in Sources */,
 				7269464B28EB51FB00217A23 /* AppDelegate.swift in Sources */,
 				72F8626228EC6431000353DA /* NewsHeaderView.swift in Sources */,
 				7269464D28EB51FB00217A23 /* SceneDelegate.swift in Sources */,
