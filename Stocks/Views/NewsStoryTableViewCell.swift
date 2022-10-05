@@ -10,7 +10,6 @@ import SDWebImage
 
 class NewsStoryTableViewCell: UITableViewCell {
     static let identifier = "NewsStoryTableViewCell"
-    
     static let preferredHeight: CGFloat = 140
     
     struct ViewModel {
@@ -26,7 +25,7 @@ class NewsStoryTableViewCell: UITableViewCell {
             self.imageUrl = URL(string: model.image)
         }
     }
-    
+
     // Source
     private let sourceLabel: UILabel = {
         let label = UILabel()
@@ -34,7 +33,7 @@ class NewsStoryTableViewCell: UITableViewCell {
         label.numberOfLines = 0
         return label
     }()
-    
+
     // Headline
     private let headlineLabel: UILabel = {
         let label = UILabel()
@@ -42,7 +41,7 @@ class NewsStoryTableViewCell: UITableViewCell {
         label.numberOfLines = 0
         return label
     }()
-    
+
     // Date
     private let dateLabel: UILabel = {
         let label = UILabel()
