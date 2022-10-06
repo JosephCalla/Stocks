@@ -201,9 +201,9 @@ extension WatchListViewController: SearchResultsViewControllerDelegate {
     func searchResultViewControllerDidSelect(searchResult: SearchResult) {
         navigationItem.searchController?.searchBar.resignFirstResponder()
         
-        let vc = StocksDetailsViewController()
+        let vc = StocksDetailsViewController(symbol: searchResult.displaySymbol,
+                                             companyName: searchResult.description)
         let navVC = UINavigationController(rootViewController: vc)
-        
         vc.title = searchResult.description
         present(navVC, animated: true)
         
@@ -257,8 +257,13 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         // Open Details for selection
+        let viewModel = viewModels[indexPath.row]
+        let vc = StocksDetailsViewController(symbol: viewModel.symbol,
+                                             companyName: viewModel.companyName,
+                                             candleStickData: watchlistMap[viewModel.symbol] ?? [])
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
     }
     
     
