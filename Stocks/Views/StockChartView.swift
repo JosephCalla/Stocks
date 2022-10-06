@@ -9,6 +9,11 @@ import UIKit
 
 class StockChartView: UIView {
 
+    struct ViewModel {
+        let data: [Double]
+        let showLegend: Bool
+        let showAxisBool: Bool
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -22,6 +27,10 @@ class StockChartView: UIView {
     
     // Reset chart view
     func reset() {
+        
+    }
+    
+    func configure(with viewMode: ViewModel) {
         
     }
 }
