@@ -15,6 +15,7 @@ class WatchListViewController: UIViewController {
     
     static var maxChangeWidth: CGFloat = 0
 
+    private var observer: NSObjectProtocol?
     /// Model
     private var watchlistMap: [String: [CandleStick]] = [:]
     
@@ -37,9 +38,21 @@ class WatchListViewController: UIViewController {
         fetchWatchlistData()
         setupFloatingPanel()
         setupTitleView()
+        setupObserver()
     }
     
     // MARK: - Private
+    private func setupObserver() {
+        observer = NotificationCenter.default.addObserver(forName: .didAddToWatchList,
+                                                          object: nil,
+                                                          queue: .main,
+                                                          using: { [weak self]_ in
+            self?.viewModels.removeAll()
+            self?.fetchWatchlistData()
+            
+        })
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
@@ -50,7 +63,7 @@ class WatchListViewController: UIViewController {
         
         let group = DispatchGroup()
         
-        for symbol in symbols {
+        for symbol in symbols where watchlistMap[symbol] == nil {
             group.enter()
             
             APICaller.shared.marketData(for: symbol) { [weak self] result in

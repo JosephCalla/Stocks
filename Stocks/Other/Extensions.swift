@@ -8,8 +8,12 @@
 import Foundation
 import UIKit
 
-// MARK: - NumberFormatter
+// MARK: - Notification
+extension Notification.Name {
+    static let didAddToWatchList = Notification.Name("")
+}
 
+// MARK: - NumberFormatter
 extension NumberFormatter {
     static let percentFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -64,6 +68,7 @@ extension String {
         return formatter.string(from: NSNumber(value: number)) ?? "\(number)"
     }
 }
+
 // MARK: - DateFormatter
 extension DateFormatter {
     static let newsDateFormatter: DateFormatter = {
