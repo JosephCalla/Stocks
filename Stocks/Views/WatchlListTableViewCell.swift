@@ -28,7 +28,7 @@ class WatchlListTableViewCell: UITableViewCell {
     // Symbol Label
     private let symbolLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         return label
     }()
 
