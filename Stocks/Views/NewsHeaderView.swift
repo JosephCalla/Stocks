@@ -8,7 +8,7 @@
 import UIKit
 
 
-protocol NewsViewDelegate: AnyObject {
+protocol NewsHeaderViewDelegate: AnyObject {
     func newsHeaderViewDidTapAddButton(_ headerView: NewsHeaderView)
 }
 
@@ -16,7 +16,7 @@ class NewsHeaderView: UITableViewHeaderFooterView {
     static let identifier = "NewsHeaderView"
     static let preferredHeight: CGFloat = 60
     
-    weak var delegate: NewsViewDelegate?
+    weak var delegate: NewsHeaderViewDelegate?
     
     struct ViewModel {
         let title: String
@@ -29,7 +29,7 @@ class NewsHeaderView: UITableViewHeaderFooterView {
         return label
     }()
     
-    private let button: UIButton = {
+    let button: UIButton = {
         let button = UIButton()
         button.setTitle("+ Watchlist", for: .normal)
         button.backgroundColor = .red
