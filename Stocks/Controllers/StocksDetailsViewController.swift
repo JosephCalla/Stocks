@@ -47,7 +47,6 @@ class StocksDetailsViewController: UIViewController {
         setupTable()
         fetchFinancialData()
         fetchNews()
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: (view.width * 0.7) + 100))
     }
     
     override func viewDidLayoutSubviews() {
@@ -67,13 +66,36 @@ class StocksDetailsViewController: UIViewController {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: (view.width * 0.7) + 100))
     }
 
     private func fetchFinancialData() {
-        // Fetch candle sticks if needed
+        let group = DispatchGroup()
         
-        //
-        renderChart()
+        // Fetch candle sticks if needed
+        if candleStickData.isEmpty {
+            group.enter()
+        }
+        
+        // Fetch financial metrics
+        group.enter()
+        APICaller.shared.financialMetrics(for: symbol) { result in
+            defer {
+                group.leave()
+            }
+            switch result {
+            case .success(let response):
+                let metrics = response.metric
+                print(metrics)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        group.notify(queue: .main) { [weak self] in
+            self?.renderChart()
+        }
     }
 
         
@@ -92,7 +114,11 @@ class StocksDetailsViewController: UIViewController {
     }
 
     private func renderChart() {
-        
+        // Chart VM | FinancialMetricViewModel(s)
+        let headerView = StockDetailHeaderView(frame: CGRect(x: 0, y: 0, width: view.width, height: (view.width * 0.7) + 100))
+        headerView.backgroundColor = .blue
+        // Configure
+        tableView.tableHeaderView = headerView
     }
 }
 
