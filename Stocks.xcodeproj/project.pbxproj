@@ -13,6 +13,7 @@
 		724AC97C28EBF99400AB8A55 /* PanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724AC97B28EBF99400AB8A55 /* PanelViewController.swift */; };
 		725A8B3C28F66B25002B1CFB /* FinancialMetricsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725A8B3B28F66B25002B1CFB /* FinancialMetricsResponse.swift */; };
 		725A8B3E28F66E51002B1CFB /* StockDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725A8B3D28F66E51002B1CFB /* StockDetailHeaderView.swift */; };
+		725A8B4028F67248002B1CFB /* MetricCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725A8B3F28F67248002B1CFB /* MetricCollectionViewCell.swift */; };
 		7269464B28EB51FB00217A23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269464A28EB51FB00217A23 /* AppDelegate.swift */; };
 		7269464D28EB51FB00217A23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269464C28EB51FB00217A23 /* SceneDelegate.swift */; };
 		7269464F28EB51FB00217A23 /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269464E28EB51FB00217A23 /* WatchListViewController.swift */; };
@@ -42,6 +43,7 @@
 		724AC97B28EBF99400AB8A55 /* PanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelViewController.swift; sourceTree = "<group>"; };
 		725A8B3B28F66B25002B1CFB /* FinancialMetricsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialMetricsResponse.swift; sourceTree = "<group>"; };
 		725A8B3D28F66E51002B1CFB /* StockDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailHeaderView.swift; sourceTree = "<group>"; };
+		725A8B3F28F67248002B1CFB /* MetricCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricCollectionViewCell.swift; sourceTree = "<group>"; };
 		7269464728EB51FB00217A23 /* Stocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7269464A28EB51FB00217A23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7269464C28EB51FB00217A23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				7233661728EDF39800D9716F /* WatchlListTableViewCell.swift */,
 				7233661928EE22AB00D9716F /* StockChartView.swift */,
 				725A8B3D28F66E51002B1CFB /* StockDetailHeaderView.swift */,
+				725A8B3F28F67248002B1CFB /* MetricCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				72F8626628ECD075000353DA /* NewsStoryTableViewCell.swift in Sources */,
 				72F8626028EC6037000353DA /* NewsViewController.swift in Sources */,
 				724AC97C28EBF99400AB8A55 /* PanelViewController.swift in Sources */,
+				725A8B4028F67248002B1CFB /* MetricCollectionViewCell.swift in Sources */,
 				7269466628EB52EB00217A23 /* SearchResultsViewController.swift in Sources */,
 				725A8B3C28F66B25002B1CFB /* FinancialMetricsResponse.swift in Sources */,
 			);

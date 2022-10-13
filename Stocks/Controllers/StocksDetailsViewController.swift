@@ -19,12 +19,13 @@ class StocksDetailsViewController: UIViewController {
         let table = UITableView()
         table.register(NewsHeaderView.self,
                        forHeaderFooterViewReuseIdentifier: NewsHeaderView.identifier)
-        
         table.register(NewsStoryTableViewCell.self,
                        forCellReuseIdentifier: NewsStoryTableViewCell.identifier)
-        
         return table
     }()
+    
+    private var metrics: Metrics?
+    
     // MARK: - Init
     // Symbol, Company Name, Any chart data we may have
     init (symbol: String, companyName: String, candleStickData: [CandleStick] = []) {
@@ -66,7 +67,7 @@ class StocksDetailsViewController: UIViewController {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: (view.width * 0.7) + 100))
+//        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: (view.width * 0.7) + 100))
     }
 
     private func fetchFinancialData() {
@@ -79,15 +80,14 @@ class StocksDetailsViewController: UIViewController {
         
         // Fetch financial metrics
         group.enter()
-        APICaller.shared.financialMetrics(for: symbol) { result in
+        APICaller.shared.financialMetrics(for: symbol) { [weak self] result in
             defer {
                 group.leave()
             }
             switch result {
             case .success(let response):
                 let metrics = response.metric
-                print(metrics)
-                
+                self?.metrics = metrics
             case .failure(let error):
                 print(error)
             }
@@ -114,11 +114,22 @@ class StocksDetailsViewController: UIViewController {
     }
 
     private func renderChart() {
-        // Chart VM | FinancialMetricViewModel(s)
-        let headerView = StockDetailHeaderView(frame: CGRect(x: 0, y: 0, width: view.width, height: (view.width * 0.7) + 100))
-        headerView.backgroundColor = .blue
+        let headerView = StockDetailHeaderView(frame: CGRect(x: 0, y: 0, width: view.width, height: (view.width  * 0.7) + 100))
+        
+        var viewModels = [MetricCollectionViewCell.ViewModel]()
+        if let metrics = metrics {
+                viewModels.append(.init(name: "52w High", value: "\(metrics.AnnualWeekHigh)"))
+                viewModels.append(.init(name: "52L Low", value: "\(metrics.AnnualWeekLow)"))
+                viewModels.append(.init(name: "52w Return", value: "\(metrics.AnnualWeekPriceReturnDaily)"))
+                viewModels.append(.init(name: "Beta", value: "\(metrics.beta)"))
+                viewModels.append(.init(name: "10D Vol.", value: "\(metrics.dayAverageTradingVolume)"))
+        }
         // Configure
-        tableView.tableHeaderView = headerView
+        headerView.configure(chartViewModel: .init(data: [], showLegend: false, showAxisBool: false), metricViewModels: viewModels)
+        
+        DispatchQueue.main.async {
+            self.tableView.tableHeaderView = headerView
+        }
     }
 }
 
@@ -153,11 +164,14 @@ extension StocksDetailsViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
         guard let url = URL(string: stories[indexPath.row].url) else { return }
         let vc = SFSafariViewController(url: url)
+        
         present(vc, animated: true)
     }
 }
+
 extension StocksDetailsViewController: NewsHeaderViewDelegate {
     func newsHeaderViewDidTapAddButton(_ headerView: NewsHeaderView) {
         // Add to watchlist
