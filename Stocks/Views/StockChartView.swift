@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Charts
 
 class StockChartView: UIView {
 
@@ -14,9 +15,24 @@ class StockChartView: UIView {
         let showLegend: Bool
         let showAxisBool: Bool
     }
+
+//    private let chartView: LineChartView = {
+//        let chartView = LineChartView()
+//        chartView.pinchZoomEnabled = false
+//        chartView.setScaleEnabled(true)
+//        chartView.xAxis.enabled = false
+//        chartView.drawGridBackgroundEnabled = false
+//        chartView.leftAxis.enabled = false
+//        chartView.rightAxis.enabled = false
+//        return chartView
+//    }()
+//
+    // MARK: - INIT
     override init(frame: CGRect) {
         super.init(frame: frame)
+//        addSubview(chartView)
     }
+    
     required init?(coder: NSCoder) {
         fatalError()
     }
@@ -25,12 +41,15 @@ class StockChartView: UIView {
         super.layoutSubviews()
     }
     
-    // Reset chart view
+    /// Reset chart view
     func reset() {
-        
+//        chartView.data = nil
     }
-    
-    func configure(with viewMode: ViewModel) {
-        
-    }
+//
+//    func configure(with viewMode: ViewModel) {
+//        var entries = [ChartDataEntry]
+////        for (index, value) in ViewModel
+////        let data = LineChartData(dataSet: dataSet)
+////        chartView.data = dat
+//    }
 }

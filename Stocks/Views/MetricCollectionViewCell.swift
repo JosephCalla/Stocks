@@ -40,7 +40,7 @@ class MetricCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         valueLabel.sizeToFit()
         nameLabel.sizeToFit()
-        nameLabel.frame = CGRect(x: 8, y: 0, width: nameLabel.width,
+        nameLabel.frame = CGRect(x: 20, y: 0, width: nameLabel.width,
                                  height: contentView.height)
         valueLabel.frame = CGRect(x: nameLabel.width + 15, y: 0, width: valueLabel.width,
                                   height: contentView.height)
