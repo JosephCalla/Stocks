@@ -144,6 +144,9 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        HapticsManager.shared.vibrateForSelection()
+
         // Open news story
         let story = stories[indexPath.row]
         guard let url = URL(string: story.url) else {
@@ -155,6 +158,8 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     /// Present an alert to show an error occurred when opening story
     func presentFailedToOpenAlert() {
+        HapticsManager.shared.vibrate(for: .error)
+
         let alert = UIAlertController(title: "Unable to Open", message: "We are unable to open the article", preferredStyle: .alert)
         alert.addAction(.init(title: "Dismiss", style: .cancel))
         present(alert, animated: true)

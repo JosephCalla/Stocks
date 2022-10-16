@@ -173,11 +173,10 @@ class StocksDetailsViewController: UIViewController {
     ///   - symbol: Symbol of company
     ///   - data: Collection of data
     /// - Returns: Percent
-    private func getChangePercentage(symbol: String, data: [CandleStick]) -> Double {
-        let latestDate = data[0].date
-        
-        guard let latestClose = data.first?.close,
-              let priorClose = data.first(where: {
+    private func getChangePercentage(symbol: String, data: [CandleStick]?) -> Double {
+        guard let latestDate = data?.first?.date,
+              let latestClose = data?.first?.close,
+              let priorClose = data?.first(where: {
                   !Calendar.current.isDate($0.date, inSameDayAs: latestDate)
               })?.close else {
             return 0
@@ -223,6 +222,9 @@ extension StocksDetailsViewController: UITableViewDataSource, UITableViewDelegat
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard let url = URL(string: stories[indexPath.row].url) else { return }
+        
+        HapticsManager.shared.vibrateForSelection()
+
         let vc = SFSafariViewController(url: url)
         
         present(vc, animated: true)
@@ -233,6 +235,9 @@ extension StocksDetailsViewController: UITableViewDataSource, UITableViewDelegat
 
 extension StocksDetailsViewController: NewsHeaderViewDelegate {
     func newsHeaderViewDidTapAddButton(_ headerView: NewsHeaderView) {
+
+        HapticsManager.shared.vibrate(for: .success)
+
         // Add to watchlist
         headerView.button.isHidden = true
         PersistenceManager.shared.addToWatchlist(symbol: symbol, companyName: companyName)
