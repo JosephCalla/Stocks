@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7231C87728FC666700F1FA54 /* StocksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7231C87628FC666700F1FA54 /* StocksTests.swift */; };
 		7233661628EDDE2C00D9716F /* MarketDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7233661528EDDE2C00D9716F /* MarketDataResponse.swift */; };
 		7233661828EDF39800D9716F /* WatchlListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7233661728EDF39800D9716F /* WatchlListTableViewCell.swift */; };
 		7233661A28EE22AB00D9716F /* StockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7233661928EE22AB00D9716F /* StockChartView.swift */; };
@@ -25,6 +26,9 @@
 		7269466E28EB70B300217A23 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269466D28EB70B300217A23 /* HapticsManager.swift */; };
 		7269467028EB84DB00217A23 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269466F28EB84DB00217A23 /* Extensions.swift */; };
 		7269467228EB86BA00217A23 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269467128EB86BA00217A23 /* SearchResultTableViewCell.swift */; };
+		72BDD44428FC6BA300A6F193 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 72BDD44328FC6BA300A6F193 /* FloatingPanel */; };
+		72BDD44628FC6BA300A6F193 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 72BDD44528FC6BA300A6F193 /* SDWebImage */; };
+		72BDD44A28FC6BA300A6F193 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 72BDD44928FC6BA300A6F193 /* Charts */; };
 		72D7CE0728FB939200FC5EDC /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 72D7CE0628FB939200FC5EDC /* Charts */; };
 		72E7498828EBB58200042681 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E7498728EBB58200042681 /* SearchResponse.swift */; };
 		72F8625E28EC5CFF000353DA /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 72F8625D28EC5CFF000353DA /* FloatingPanel */; };
@@ -35,7 +39,27 @@
 		72F8626928ECF207000353DA /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 72F8626828ECF207000353DA /* SDWebImage */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7231C87828FC666700F1FA54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7269463F28EB51FB00217A23 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7269464628EB51FB00217A23;
+			remoteInfo = Stocks;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		72BDD44D28FC6BA300A6F193 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		72CD364128FB891B0020F95B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -49,6 +73,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7231C87428FC666700F1FA54 /* StocksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StocksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7231C87628FC666700F1FA54 /* StocksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksTests.swift; sourceTree = "<group>"; };
 		7233661528EDDE2C00D9716F /* MarketDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataResponse.swift; sourceTree = "<group>"; };
 		7233661728EDF39800D9716F /* WatchlListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlListTableViewCell.swift; sourceTree = "<group>"; };
 		7233661928EE22AB00D9716F /* StockChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockChartView.swift; sourceTree = "<group>"; };
@@ -77,6 +103,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7231C87128FC666700F1FA54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72BDD44628FC6BA300A6F193 /* SDWebImage in Frameworks */,
+				72BDD44428FC6BA300A6F193 /* FloatingPanel in Frameworks */,
+				72BDD44A28FC6BA300A6F193 /* Charts in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7269464428EB51FB00217A23 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,10 +126,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7231C87528FC666700F1FA54 /* StocksTests */ = {
+			isa = PBXGroup;
+			children = (
+				7231C87628FC666700F1FA54 /* StocksTests.swift */,
+			);
+			path = StocksTests;
+			sourceTree = "<group>";
+		};
 		7269463E28EB51FB00217A23 = {
 			isa = PBXGroup;
 			children = (
 				7269464928EB51FB00217A23 /* Stocks */,
+				7231C87528FC666700F1FA54 /* StocksTests */,
 				7269464828EB51FB00217A23 /* Products */,
 				85FF647FD396D27118B3D424 /* Frameworks */,
 			);
@@ -103,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				7269464728EB51FB00217A23 /* Stocks.app */,
+				7231C87428FC666700F1FA54 /* StocksTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,6 +234,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7231C87328FC666700F1FA54 /* StocksTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7231C87C28FC666700F1FA54 /* Build configuration list for PBXNativeTarget "StocksTests" */;
+			buildPhases = (
+				7231C87028FC666700F1FA54 /* Sources */,
+				7231C87128FC666700F1FA54 /* Frameworks */,
+				7231C87228FC666700F1FA54 /* Resources */,
+				72BDD44D28FC6BA300A6F193 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7231C87928FC666700F1FA54 /* PBXTargetDependency */,
+			);
+			name = StocksTests;
+			packageProductDependencies = (
+				72BDD44328FC6BA300A6F193 /* FloatingPanel */,
+				72BDD44528FC6BA300A6F193 /* SDWebImage */,
+				72BDD44928FC6BA300A6F193 /* Charts */,
+			);
+			productName = StocksTests;
+			productReference = 7231C87428FC666700F1FA54 /* StocksTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7269464628EB51FB00217A23 /* Stocks */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7269465B28EB51FB00217A23 /* Build configuration list for PBXNativeTarget "Stocks" */;
@@ -221,6 +291,10 @@
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					7231C87328FC666700F1FA54 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 7269464628EB51FB00217A23;
+					};
 					7269464628EB51FB00217A23 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
@@ -245,11 +319,19 @@
 			projectRoot = "";
 			targets = (
 				7269464628EB51FB00217A23 /* Stocks */,
+				7231C87328FC666700F1FA54 /* StocksTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7231C87228FC666700F1FA54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7269464528EB51FB00217A23 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -262,6 +344,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7231C87028FC666700F1FA54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7231C87728FC666700F1FA54 /* StocksTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7269464328EB51FB00217A23 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,6 +382,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7231C87928FC666700F1FA54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7269464628EB51FB00217A23 /* Stocks */;
+			targetProxy = 7231C87828FC666700F1FA54 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		7269465528EB51FB00217A23 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -304,6 +402,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7231C87A28FC666700F1FA54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J76GLL854P;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = josephCalla.com.StocksTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stocks.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Stocks";
+			};
+			name = Debug;
+		};
+		7231C87B28FC666700F1FA54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J76GLL854P;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = josephCalla.com.StocksTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stocks.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Stocks";
+			};
+			name = Release;
+		};
 		7269465928EB51FB00217A23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -483,6 +619,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7231C87C28FC666700F1FA54 /* Build configuration list for PBXNativeTarget "StocksTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7231C87A28FC666700F1FA54 /* Debug */,
+				7231C87B28FC666700F1FA54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7269464228EB51FB00217A23 /* Build configuration list for PBXProject "Stocks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -531,6 +676,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		72BDD44328FC6BA300A6F193 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72F8625C28EC5CFF000353DA /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
+		72BDD44528FC6BA300A6F193 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72F8626728ECF207000353DA /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		72BDD44928FC6BA300A6F193 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72D7CE0528FB939200FC5EDC /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
 		72D7CE0628FB939200FC5EDC /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 72D7CE0528FB939200FC5EDC /* XCRemoteSwiftPackageReference "Charts" */;
