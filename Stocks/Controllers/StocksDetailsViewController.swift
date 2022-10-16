@@ -137,14 +137,30 @@ class StocksDetailsViewController: UIViewController {
                 viewModels.append(.init(name: "10D Vol.", value: "\(metrics.dayAverageTradingVolume)"))
         }
         // Configure
+        let change = getChangePercentage(symbol: symbol, data: candleStickData)
         headerView.configure(chartViewModel: .init(data: candleStickData.reversed().map {$0.close},
                                                    showLegend: false,
-                                                   showAxisBool: false),
+                                                   showAxis: false,
+                                                   fillColor: change < 0 ? .systemRed : .systemGreen),
                              metricViewModels: viewModels)
         
         DispatchQueue.main.async {
             self.tableView.tableHeaderView = headerView
         }
+    }
+    
+    private func getChangePercentage(symbol: String, data: [CandleStick]) -> Double {
+        let latestDate = data[0].date
+        
+        guard let latestClose = data.first?.close,
+              let priorClose = data.first(where: {
+                  !Calendar.current.isDate($0.date, inSameDayAs: latestDate)
+              })?.close else {
+            return 0
+        }
+        
+        let diff = (1 - (priorClose/latestClose))
+        return diff
     }
 }
 

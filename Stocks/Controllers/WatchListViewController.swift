@@ -101,7 +101,8 @@ class WatchListViewController: UIViewController {
                                     changePercentage: .percentage(from: changePercentage), chartViewModel: .init(
                                         data: candleSticks.reversed().map { $0.close },
                                         showLegend: false,
-                                        showAxisBool: false)))
+                                        showAxis: false,
+                                        fillColor: changePercentage < 0 ? .systemRed: .systemGreen)))
         }
         self.viewModels = viewModels
     }
@@ -116,9 +117,7 @@ class WatchListViewController: UIViewController {
             return 0
         }
         
-        // 267 / 260
         let diff = (1 - (priorClose/latestClose))
-        print("\(symbol): \(diff)%")
         return diff
     }
     
