@@ -7,15 +7,24 @@
 
 import UIKit
 
+/// Delegate for search resultts
 protocol SearchResultsViewControllerDelegate: AnyObject {
+   
+    /// Notify delegate of selection
+    /// - Parameter searchResult: Result that was picked
     func searchResultViewControllerDidSelect(searchResult: SearchResult)
 }
-class SearchResultsViewController: UIViewController {
 
+/// VC to show search results
+final class SearchResultsViewController: UIViewController {
+    
+    /// Delegate to get events
     weak var delegate: SearchResultsViewControllerDelegate?
     
+    /// Collection of results
     private var results: [SearchResult] = []
     
+    /// Primary view
     private let tableView: UITableView = {
         let table = UITableView()
         // Register a cell
@@ -24,6 +33,8 @@ class SearchResultsViewController: UIViewController {
         return table
     }()
     
+    // MARK: Lyficycle
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -35,18 +46,27 @@ class SearchResultsViewController: UIViewController {
         tableView.frame = view.bounds
     }
     
+    // MARK: - Private
+    
+    /// Sets up our table view
     private func setupTable() {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
     }
     
+    // MARK: - Public
+    
+    /// Update results on VC
+    /// - Parameter results: Collection of new results
     public func update(with results: [SearchResult]) {
         self.results = results
         tableView.isHidden = results.isEmpty
         tableView.reloadData()
     }
 }
+
+// MARK: - TableView
 
 extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

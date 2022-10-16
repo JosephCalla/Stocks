@@ -8,13 +8,20 @@
 import UIKit
 import SafariServices
 
+/// VC to show stock details
 class StocksDetailsViewController: UIViewController {
     // MARK: - Properties
+    
+    /// Stock symbol
     private let symbol: String
+    
+    /// Company name
     private let companyName: String
+    
+    /// Collection of data
     private var candleStickData: [CandleStick]
-    private var stories = [NewsStory]()
-
+    
+    /// Primary view
     private let tableView: UITableView = {
         let table = UITableView()
         table.register(NewsHeaderView.self,
@@ -24,6 +31,10 @@ class StocksDetailsViewController: UIViewController {
         return table
     }()
     
+    /// Collection of news story
+    private var stories = [NewsStory]()
+    
+    /// Company memtrics
     private var metrics: Metrics?
     
     // MARK: - Init
@@ -56,20 +67,26 @@ class StocksDetailsViewController: UIViewController {
     }
 
     // MARK: - Private
+    
+    /// Sets up close button
     private func setupCloseButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapClose))
     }
+    
+    /// Handle close button
     @objc private func didTapClose() {
         dismiss(animated: true)
     }
     
+    /// Sets up table
     private func setupTable() {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-//        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: (view.width * 0.7) + 100))
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: (view.width * 0.7) + 100))
     }
-
+    
+    /// Fetch financial metrics
     private func fetchFinancialData() {
         let group = DispatchGroup()
         
@@ -110,7 +127,8 @@ class StocksDetailsViewController: UIViewController {
         }
     }
 
-        
+    
+    /// Fetch news for given type
     private func fetchNews() {
         APICaller.shared.news(for: .company(symbol: symbol)) { [weak self] result in
             switch result {
@@ -124,7 +142,8 @@ class StocksDetailsViewController: UIViewController {
             }
         }
     }
-
+    
+    /// Render chart and metrics
     private func renderChart() {
         let headerView = StockDetailHeaderView(frame: CGRect(x: 0, y: 0, width: view.width, height: (view.width  * 0.7) + 100))
         
@@ -149,6 +168,11 @@ class StocksDetailsViewController: UIViewController {
         }
     }
     
+    /// Get change percentage
+    /// - Parameters:
+    ///   - symbol: Symbol of company
+    ///   - data: Collection of data
+    /// - Returns: Percent
     private func getChangePercentage(symbol: String, data: [CandleStick]) -> Double {
         let latestDate = data[0].date
         
@@ -163,6 +187,8 @@ class StocksDetailsViewController: UIViewController {
         return diff
     }
 }
+
+// MARK: - Tableview
 
 extension StocksDetailsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -202,6 +228,8 @@ extension StocksDetailsViewController: UITableViewDataSource, UITableViewDelegat
         present(vc, animated: true)
     }
 }
+
+// MARK: - NewsHeaderViewDelegate
 
 extension StocksDetailsViewController: NewsHeaderViewDelegate {
     func newsHeaderViewDidTapAddButton(_ headerView: NewsHeaderView) {

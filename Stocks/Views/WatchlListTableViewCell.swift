@@ -6,16 +6,23 @@
 //
 
 import UIKit
+/// Delegate to notify of cell events
 protocol WatchlListTableViewCellDelegate: AnyObject {
     func didUpdateMaxWidth()
 }
 
-class WatchlListTableViewCell: UITableViewCell {
+/// Table cell for watch list item
+final class WatchlListTableViewCell: UITableViewCell {
+    /// Cell id
     static let identifier = "WatchlListTableViewCell"
+    
+    /// Ideal height of cell
     static let preferredHeight: CGFloat = 60
     
+    /// Delegate
     weak var delegate: WatchlListTableViewCellDelegate?
     
+    /// Watchlist table cell viewModel
     struct ViewModel {
         let symbol: String
         let companyName: String
@@ -25,28 +32,28 @@ class WatchlListTableViewCell: UITableViewCell {
          let chartViewModel: StockChartView.ViewModel
     }
     
-    // Symbol Label
+    /// Symbol Label
     private let symbolLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .semibold)
         return label
     }()
 
-    // Company label
+    /// Company label
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
 
-    // Minichart View
+    /// Minichart View
     private let miniChartLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
 
-    // Price Label
+    /// Price Label
     private let priceLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
@@ -55,7 +62,7 @@ class WatchlListTableViewCell: UITableViewCell {
         return label
     }()
 
-    // Change in price label
+    /// Change in price label
     private let changePriceLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .right
@@ -66,6 +73,7 @@ class WatchlListTableViewCell: UITableViewCell {
         return label
     }()
     
+    /// Chart
     private let miniChartView: StockChartView = {
         let chart = StockChartView()
         chart.isUserInteractionEnabled = false
@@ -73,11 +81,12 @@ class WatchlListTableViewCell: UITableViewCell {
         return chart
     }()
     
+    // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.clipsToBounds = true
         
-        addSubViews(symbolLabel,
+        addSubviews(symbolLabel,
                     nameLabel,
                     miniChartLabel,
                     priceLabel,
@@ -142,6 +151,8 @@ class WatchlListTableViewCell: UITableViewCell {
         miniChartView.reset()
     }
     
+    /// Configure view
+    /// - Parameter viewModel: View ViewModel
     public func configure(with viewModel: ViewModel) {
         symbolLabel.text = viewModel.symbol
         nameLabel.text = viewModel.companyName

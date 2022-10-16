@@ -10,7 +10,6 @@
 		7233661628EDDE2C00D9716F /* MarketDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7233661528EDDE2C00D9716F /* MarketDataResponse.swift */; };
 		7233661828EDF39800D9716F /* WatchlListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7233661728EDF39800D9716F /* WatchlListTableViewCell.swift */; };
 		7233661A28EE22AB00D9716F /* StockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7233661928EE22AB00D9716F /* StockChartView.swift */; };
-		724AC97C28EBF99400AB8A55 /* PanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724AC97B28EBF99400AB8A55 /* PanelViewController.swift */; };
 		725A8B3C28F66B25002B1CFB /* FinancialMetricsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725A8B3B28F66B25002B1CFB /* FinancialMetricsResponse.swift */; };
 		725A8B3E28F66E51002B1CFB /* StockDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725A8B3D28F66E51002B1CFB /* StockDetailHeaderView.swift */; };
 		725A8B4028F67248002B1CFB /* MetricCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725A8B3F28F67248002B1CFB /* MetricCollectionViewCell.swift */; };
@@ -19,7 +18,6 @@
 		7269464F28EB51FB00217A23 /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269464E28EB51FB00217A23 /* WatchListViewController.swift */; };
 		7269465428EB51FB00217A23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7269465328EB51FB00217A23 /* Assets.xcassets */; };
 		7269465728EB51FB00217A23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7269465528EB51FB00217A23 /* LaunchScreen.storyboard */; };
-		7269466428EB52DD00217A23 /* TopStoriesNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269466328EB52DD00217A23 /* TopStoriesNewsViewController.swift */; };
 		7269466628EB52EB00217A23 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269466528EB52EB00217A23 /* SearchResultsViewController.swift */; };
 		7269466828EB52F500217A23 /* StocksDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269466728EB52F500217A23 /* StocksDetailsViewController.swift */; };
 		7269466A28EB708D00217A23 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269466928EB708D00217A23 /* APICaller.swift */; };
@@ -54,7 +52,6 @@
 		7233661528EDDE2C00D9716F /* MarketDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataResponse.swift; sourceTree = "<group>"; };
 		7233661728EDF39800D9716F /* WatchlListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlListTableViewCell.swift; sourceTree = "<group>"; };
 		7233661928EE22AB00D9716F /* StockChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockChartView.swift; sourceTree = "<group>"; };
-		724AC97B28EBF99400AB8A55 /* PanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelViewController.swift; sourceTree = "<group>"; };
 		725A8B3B28F66B25002B1CFB /* FinancialMetricsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialMetricsResponse.swift; sourceTree = "<group>"; };
 		725A8B3D28F66E51002B1CFB /* StockDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailHeaderView.swift; sourceTree = "<group>"; };
 		725A8B3F28F67248002B1CFB /* MetricCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -65,7 +62,6 @@
 		7269465328EB51FB00217A23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7269465628EB51FB00217A23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7269465828EB51FB00217A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7269466328EB52DD00217A23 /* TopStoriesNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesNewsViewController.swift; sourceTree = "<group>"; };
 		7269466528EB52EB00217A23 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		7269466728EB52F500217A23 /* StocksDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksDetailsViewController.swift; sourceTree = "<group>"; };
 		7269466928EB708D00217A23 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
@@ -155,8 +151,6 @@
 			children = (
 				7269464E28EB51FB00217A23 /* WatchListViewController.swift */,
 				72F8625F28EC6037000353DA /* NewsViewController.swift */,
-				7269466328EB52DD00217A23 /* TopStoriesNewsViewController.swift */,
-				724AC97B28EBF99400AB8A55 /* PanelViewController.swift */,
 				7269466528EB52EB00217A23 /* SearchResultsViewController.swift */,
 				7269466728EB52F500217A23 /* StocksDetailsViewController.swift */,
 			);
@@ -276,7 +270,6 @@
 				7269467228EB86BA00217A23 /* SearchResultTableViewCell.swift in Sources */,
 				7233661628EDDE2C00D9716F /* MarketDataResponse.swift in Sources */,
 				7269464F28EB51FB00217A23 /* WatchListViewController.swift in Sources */,
-				7269466428EB52DD00217A23 /* TopStoriesNewsViewController.swift in Sources */,
 				7269466828EB52F500217A23 /* StocksDetailsViewController.swift in Sources */,
 				7269466C28EB70A200217A23 /* PersistenceManager.swift in Sources */,
 				7269467028EB84DB00217A23 /* Extensions.swift in Sources */,
@@ -291,7 +284,6 @@
 				7269464D28EB51FB00217A23 /* SceneDelegate.swift in Sources */,
 				72F8626628ECD075000353DA /* NewsStoryTableViewCell.swift in Sources */,
 				72F8626028EC6037000353DA /* NewsViewController.swift in Sources */,
-				724AC97C28EBF99400AB8A55 /* PanelViewController.swift in Sources */,
 				725A8B4028F67248002B1CFB /* MetricCollectionViewCell.swift in Sources */,
 				7269466628EB52EB00217A23 /* SearchResultsViewController.swift in Sources */,
 				725A8B3C28F66B25002B1CFB /* FinancialMetricsResponse.swift in Sources */,

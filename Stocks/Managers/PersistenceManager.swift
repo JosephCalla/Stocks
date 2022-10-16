@@ -7,22 +7,28 @@
 
 import Foundation
 
-// ["APPL", "MSFT", "SNAP"]
-// ['APPL', ]
+
+/// Object to manage saved caches
 final class PersistenceManager {
+    
+    /// Singleton
     static let shared = PersistenceManager()
     
+    /// Reference to user defaults
     private let userDefaults: UserDefaults = .standard
     
+    /// Constants
     private struct Constants {
         static let onboardedKey = "hasOnboarded"
         static let watchListKey = "watchlist"
     }
     
+    /// Privatized constructor
     private init () {}
     
     // MARK: - Public
     
+    /// Given user watchlist
     var watchlist: [String] {
         if !hasOnboarded {
             userDefaults.set(true, forKey: Constants.onboardedKey)
@@ -31,10 +37,17 @@ final class PersistenceManager {
         return userDefaults.stringArray(forKey: Constants.watchListKey) ?? []
     }
     
+    /// Check if watch list contains item
+    /// - Parameter symbol: Symbol to check
+    /// - Returns: Boolean
     public func watchlistContains(symbol: String) -> Bool {
         return watchlist.contains(symbol)
     }
     
+    /// Add a symbol to watchlist
+    /// - Parameters:
+    ///   - symbol: Symbol to add
+    ///   - companyName: Company name for symbol being added
     public func addToWatchlist(symbol: String, companyName: String) {
         var current = watchlist
         current.append(symbol)
@@ -45,6 +58,8 @@ final class PersistenceManager {
         
     }
     
+    /// Remove item from watchlist
+    /// - Parameter symbol: Symbol to remove
     public func removeFromWatchlist(symbol: String) {
         var newList = [String]()
         
@@ -60,10 +75,13 @@ final class PersistenceManager {
     }
     
     // MARK: - Private
+    
+    /// Check if user has been onboarded
     private var hasOnboarded: Bool {
         return userDefaults.bool(forKey: "hasOnboarded")
     }
     
+    /// Set up default watch list
     private func setupDefaults() {
         let map: [String: String] = [
             "APPL": "Apple Inc",

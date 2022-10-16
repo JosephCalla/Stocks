@@ -8,27 +8,15 @@
 import UIKit
 import SafariServices
 
-class NewsViewController: UIViewController {
-
-    // MARK: Properties
+/// Controller to show news
+final class NewsViewController: UIViewController {
     
-    private var stories = [NewsStory]()
-    
-    private let type: TypeNews
-    
-    var tableView: UITableView = {
-        let table = UITableView()
-        // Register cell, header
-        table.register(NewsStoryTableViewCell.self, forCellReuseIdentifier: NewsStoryTableViewCell.identifier)
-        table.register(NewsHeaderView.self, forHeaderFooterViewReuseIdentifier: NewsHeaderView.identifier)
-        table.backgroundColor = .clear
-        return table
-    }()
-    
+    /// Type of news
     enum TypeNews {
         case topStories
         case company(symbol: String)
         
+        /// Title for given type
         var title: String {
             switch self {
             case .topStories:
@@ -39,7 +27,28 @@ class NewsViewController: UIViewController {
         }
     }
     
+    // MARK: - Properties
+    
+    /// Collection of models
+    private var stories = [NewsStory]()
+    
+    /// Intance of a type
+    private let type: TypeNews
+    
+    /// Primary news view
+    var tableView: UITableView = {
+        let table = UITableView()
+       
+        // Register cell, header
+        table.register(NewsStoryTableViewCell.self, forCellReuseIdentifier: NewsStoryTableViewCell.identifier)
+        table.register(NewsHeaderView.self, forHeaderFooterViewReuseIdentifier: NewsHeaderView.identifier)
+        table.backgroundColor = .clear
+        return table
+    }()
+    
     // MARK: - Initializer
+   
+    /// Crreate VC with type
     init(type: TypeNews) {
         self.type = type
         super.init(nibName: nil, bundle: nil)
@@ -60,13 +69,16 @@ class NewsViewController: UIViewController {
         tableView.frame = view.bounds
     }
     
-    // MARK: - Private functions
+    // MARK: - Private
+    
+    /// Sets up tableView
     private func setupTable() {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
     }
     
+    /// Fetch news models
     private func fetchNews() {
         APICaller.shared.news(for: type) { result in
             switch result {
@@ -81,12 +93,16 @@ class NewsViewController: UIViewController {
         }
     }
     
+    /// Oopen a story
+    /// - Parameter url: URL to open
     private func open(url: URL) {
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true)
     }
 
 }
+
+// MARK: - UITableViewDelegate
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -129,7 +145,6 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // Open news story
-        
         let story = stories[indexPath.row]
         guard let url = URL(string: story.url) else {
             presentFailedToOpenAlert()
@@ -138,6 +153,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         open(url: url)
     }
     
+    /// Present an alert to show an error occurred when opening story
     func presentFailedToOpenAlert() {
         let alert = UIAlertController(title: "Unable to Open", message: "We are unable to open the article", preferredStyle: .alert)
         alert.addAction(.init(title: "Dismiss", style: .cancel))

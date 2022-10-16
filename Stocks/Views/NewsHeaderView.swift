@@ -8,20 +8,31 @@
 import UIKit
 
 
+/// Delegate to notify of header events
 protocol NewsHeaderViewDelegate: AnyObject {
+    /// Notiify user tapped header button
+    /// - Parameter headerView: Ref of header view
     func newsHeaderViewDidTapAddButton(_ headerView: NewsHeaderView)
 }
 
-class NewsHeaderView: UITableViewHeaderFooterView {
+/// TableView header for news
+final class NewsHeaderView: UITableViewHeaderFooterView {
+    /// Header identifier
     static let identifier = "NewsHeaderView"
+    
+    /// Ideal height of header
     static let preferredHeight: CGFloat = 60
     
+    /// Delagete instance for events
     weak var delegate: NewsHeaderViewDelegate?
     
+    /// ViewModel for header view
     struct ViewModel {
         let title: String
         let shouldShowAddButton: Bool
     }
+    
+    // MARK: - Private
     
     private let label: UILabel = {
        let label = UILabel()
@@ -44,17 +55,12 @@ class NewsHeaderView: UITableViewHeaderFooterView {
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .secondarySystemBackground
-        contentView.addSubViews(label, button)
+        contentView.addSubviews(label, button)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    @objc private func didTapButton() {
-        // Call delegate
-        delegate?.newsHeaderViewDidTapAddButton(self)
     }
     
     override func layoutSubviews() {
@@ -74,10 +80,19 @@ class NewsHeaderView: UITableViewHeaderFooterView {
         label.text = nil
     }
     
+    /// Configure view
+    /// - Parameter viewModel: View viewModel
     public func configure(with viewModel: ViewModel) {
         label.text = viewModel.title
         button.isHidden = !viewModel.shouldShowAddButton
     }
+    
+    /// Handle button tap
+    @objc private func didTapButton() {
+        // Call delegate
+        delegate?.newsHeaderViewDidTapAddButton(self)
+    }
+
    
 
 }

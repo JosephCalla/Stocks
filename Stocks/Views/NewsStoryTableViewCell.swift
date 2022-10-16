@@ -8,10 +8,16 @@
 import UIKit
 import SDWebImage
 
-class NewsStoryTableViewCell: UITableViewCell {
+
+/// News story tableView Cell
+final class NewsStoryTableViewCell: UITableViewCell {
+    /// Cell id
     static let identifier = "NewsStoryTableViewCell"
+    
+    /// Ideal heght of cell
     static let preferredHeight: CGFloat = 140
     
+    ///  Cell viewModel
     struct ViewModel {
         let source: String
         let headline: String
@@ -26,7 +32,7 @@ class NewsStoryTableViewCell: UITableViewCell {
         }
     }
 
-    // Source
+    /// Source
     private let sourceLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14,weight: .medium)
@@ -34,7 +40,7 @@ class NewsStoryTableViewCell: UITableViewCell {
         return label
     }()
 
-    // Headline
+    /// Headline
     private let headlineLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18,weight: .regular)
@@ -42,14 +48,14 @@ class NewsStoryTableViewCell: UITableViewCell {
         return label
     }()
 
-    // Date
+    /// Date
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14,weight: .light)
         return label
     }()
     
-    // Image
+    /// Image for story
     private let storyImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .tertiarySystemBackground
@@ -60,11 +66,13 @@ class NewsStoryTableViewCell: UITableViewCell {
         return imageView
     }()
     
+    // MARK: - Init
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .secondarySystemBackground
         backgroundColor = .secondarySystemBackground
-        addSubViews(sourceLabel, headlineLabel, dateLabel, storyImageView)
+        addSubviews(sourceLabel, headlineLabel, dateLabel, storyImageView)
     }
     
     required init?(coder: NSCoder) {
@@ -109,6 +117,8 @@ class NewsStoryTableViewCell: UITableViewCell {
         storyImageView.image = nil
     }
     
+    /// Configure
+    /// - Parameter viewModel: View ViewModel
     public func configure(with viewModel: ViewModel) {
         headlineLabel.text = viewModel.headline
         sourceLabel.text = viewModel.source
