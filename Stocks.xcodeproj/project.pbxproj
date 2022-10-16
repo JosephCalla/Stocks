@@ -27,6 +27,7 @@
 		7269466E28EB70B300217A23 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269466D28EB70B300217A23 /* HapticsManager.swift */; };
 		7269467028EB84DB00217A23 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269466F28EB84DB00217A23 /* Extensions.swift */; };
 		7269467228EB86BA00217A23 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269467128EB86BA00217A23 /* SearchResultTableViewCell.swift */; };
+		72D7CE0728FB939200FC5EDC /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 72D7CE0628FB939200FC5EDC /* Charts */; };
 		72E7498828EBB58200042681 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E7498728EBB58200042681 /* SearchResponse.swift */; };
 		72F8625E28EC5CFF000353DA /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 72F8625D28EC5CFF000353DA /* FloatingPanel */; };
 		72F8626028EC6037000353DA /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8625F28EC6037000353DA /* NewsViewController.swift */; };
@@ -35,6 +36,19 @@
 		72F8626628ECD075000353DA /* NewsStoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F8626528ECD075000353DA /* NewsStoryTableViewCell.swift */; };
 		72F8626928ECF207000353DA /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 72F8626828ECF207000353DA /* SDWebImage */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		72CD364128FB891B0020F95B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7233661528EDDE2C00D9716F /* MarketDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataResponse.swift; sourceTree = "<group>"; };
@@ -72,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72F8626928ECF207000353DA /* SDWebImage in Frameworks */,
+				72D7CE0728FB939200FC5EDC /* Charts in Frameworks */,
 				72F8625E28EC5CFF000353DA /* FloatingPanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +99,7 @@
 			children = (
 				7269464928EB51FB00217A23 /* Stocks */,
 				7269464828EB51FB00217A23 /* Products */,
+				85FF647FD396D27118B3D424 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,9 +156,9 @@
 				7269464E28EB51FB00217A23 /* WatchListViewController.swift */,
 				72F8625F28EC6037000353DA /* NewsViewController.swift */,
 				7269466328EB52DD00217A23 /* TopStoriesNewsViewController.swift */,
+				724AC97B28EBF99400AB8A55 /* PanelViewController.swift */,
 				7269466528EB52EB00217A23 /* SearchResultsViewController.swift */,
 				7269466728EB52F500217A23 /* StocksDetailsViewController.swift */,
-				724AC97B28EBF99400AB8A55 /* PanelViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -168,6 +184,13 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		85FF647FD396D27118B3D424 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -178,6 +201,7 @@
 				7269464328EB51FB00217A23 /* Sources */,
 				7269464428EB51FB00217A23 /* Frameworks */,
 				7269464528EB51FB00217A23 /* Resources */,
+				72CD364128FB891B0020F95B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -187,6 +211,7 @@
 			packageProductDependencies = (
 				72F8625D28EC5CFF000353DA /* FloatingPanel */,
 				72F8626828ECF207000353DA /* SDWebImage */,
+				72D7CE0628FB939200FC5EDC /* Charts */,
 			);
 			productName = Stocks;
 			productReference = 7269464728EB51FB00217A23 /* Stocks.app */;
@@ -219,6 +244,7 @@
 			packageReferences = (
 				72F8625C28EC5CFF000353DA /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 				72F8626728ECF207000353DA /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				72D7CE0528FB939200FC5EDC /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 7269464828EB51FB00217A23 /* Products */;
 			projectDirPath = "";
@@ -408,12 +434,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J76GLL854P;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Stocks/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -435,12 +465,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J76GLL854P;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Stocks/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -478,6 +512,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		72D7CE0528FB939200FC5EDC /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.0;
+			};
+		};
 		72F8625C28EC5CFF000353DA /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scenee/FloatingPanel#swift-package-manager";
@@ -497,6 +539,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		72D7CE0628FB939200FC5EDC /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72D7CE0528FB939200FC5EDC /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
 		72F8625D28EC5CFF000353DA /* FloatingPanel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 72F8625C28EC5CFF000353DA /* XCRemoteSwiftPackageReference "FloatingPanel" */;

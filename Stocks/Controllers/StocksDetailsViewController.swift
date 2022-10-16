@@ -12,7 +12,7 @@ class StocksDetailsViewController: UIViewController {
     // MARK: - Properties
     private let symbol: String
     private let companyName: String
-    private let candleStickData: [CandleStick]
+    private var candleStickData: [CandleStick]
     private var stories = [NewsStory]()
 
     private let tableView: UITableView = {
@@ -76,6 +76,18 @@ class StocksDetailsViewController: UIViewController {
         // Fetch candle sticks if needed
         if candleStickData.isEmpty {
             group.enter()
+            APICaller.shared.marketData(for: symbol) { [weak self] result in
+                defer {
+                    group.leave()
+                }
+                
+                switch result {
+                case .success(let response):
+                    self?.candleStickData = response.candleSticks
+                case .failure(let error):
+                    print(error)
+                }
+            }
         }
         
         // Fetch financial metrics
@@ -125,7 +137,10 @@ class StocksDetailsViewController: UIViewController {
                 viewModels.append(.init(name: "10D Vol.", value: "\(metrics.dayAverageTradingVolume)"))
         }
         // Configure
-        headerView.configure(chartViewModel: .init(data: [], showLegend: false, showAxisBool: false), metricViewModels: viewModels)
+        headerView.configure(chartViewModel: .init(data: candleStickData.reversed().map {$0.close},
+                                                   showLegend: false,
+                                                   showAxisBool: false),
+                             metricViewModels: viewModels)
         
         DispatchQueue.main.async {
             self.tableView.tableHeaderView = headerView
